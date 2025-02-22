@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title id="page-title">Game Project</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                title: params.get("title") || "Game Project",
+                image: params.get("image") || "images/default.jpg",
+                desc: params.get("desc") || "No description available.",
+                itch: params.get("itch") || "#"
+            };
+        }
+
+        function populateGameDetails() {
+            const game = getQueryParams();
+            document.getElementById("page-title").innerText = game.title;
+            document.getElementById("game-title").innerText = game.title;
+            document.getElementById("game-image").src = game.image;
+            document.getElementById("game-desc").innerText = game.desc;
+            document.getElementById("itch-link").href = game.itch;
+        }
+
+        window.onload = populateGameDetails;
+    </script>
+</head>
+<body class="is-preload">
+    <div id="wrapper">
+        
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <a href="index.html" class="logo">
+                    <span class="title" id="game-title">Game Project</span>
+                </a>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <div id="main">
+            <div class="inner">
+                <h1 id="game-title">Game Project</h1>
+                <span class="image main"><img id="game-image" src="images/default.jpg" alt="Game Screenshot" /></span>
+                <p id="game-desc">No description available.</p>
+                
+                <a id="itch-link" href="#" class="button primary" target="_blank">Play on Itch.io</a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <ul class="copyright">
+                    <li>&copy; 2025. All rights reserved.</li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
