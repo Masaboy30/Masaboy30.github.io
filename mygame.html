@@ -18,14 +18,30 @@
         }
 
         function populateGameDetails() {
-            const game = getQueryParams();
+            const gameKey = getQueryParams().game;
+            const gameDetails = {
+                "haileySeitan": {
+                    title: "Hailey Seitan",
+                    image: "images/HaileySeitanBigCover.png",
+                    desc: "First person shooter-cooker. A shooter-cooker?? I worked on the game design and programming, creating levels and mechanics to enhance the player experience.",
+                    itch: "https://sarcaster.itch.io/hailey-seitan"
+                },
+                "groundfolk": {
+                    title: "Groundfolk",
+                    image: "images/groundfolkCover.jpg",
+                    desc: "Finnish folklore inspired 3D-platformer in a small open world. I contributed to level design and gameplay mechanics.",
+                    itch: "https://retvis.itch.io/groundfolk"
+                },
+                // Add more game objects as needed
+            };
+
+            const game = gameDetails[gameKey] || gameDetails["haileySeitan"]; // Default game if not found
             document.getElementById("page-title").innerText = game.title;
             document.getElementById("game-title").innerText = game.title;
             document.getElementById("game-image").src = game.image;
             document.getElementById("game-desc").innerText = game.desc;
             document.getElementById("itch-link").href = game.itch;
         }
-
         window.onload = populateGameDetails;
     </script>
 </head>
